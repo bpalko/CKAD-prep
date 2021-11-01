@@ -1,0 +1,20 @@
+# find it here usually: $ home/.kube/config
+apiVersion: v1
+kind: Config
+current-context: dev-frontend # choose whatever context
+clusters:
+- cluster:
+  name: development
+- cluster:
+  name: scratch
+users:
+- name: developer
+- name: experimenter
+contexts:
+- context:
+  name: dev-frontend
+  namespace: developer
+- context:
+  name: dev-storage
+- context:
+  name: exp-scratch
