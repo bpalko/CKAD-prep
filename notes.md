@@ -22,7 +22,7 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 ## NAMESPACE
 - kubectl … --namespace 
-- ubectle create -f (file)
+- kubectl create -f (file)
 - kubectl create namespace (name)
 - kubectl config set-context (kubectl config current-context) --namespace=dev (this is like the token commands)
 - Accessing outside the namespace would be:
@@ -45,14 +45,14 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 - kubectl get configmaps
 ### Can reference a ConfigMap in three ways:
 - envFrom>configMapRef>-configmap>name
-- v>valueFrom>...
+- env>valueFrom>...
 
 ## SECRETS
 - kubectl create secret generic (secret-name) --from-literal=(key)=(value)
 - kubectl get secrets
 
 ## TAINTS AND TOLERATIONS
-- kubectl taint nodes node-name key=value:taint-effect
+- kubectl taint nodes node-name (key)=(value):(taint-effect)
 ### Taint effect can be things like NoSchedule, PreferNoSchedule, NoExecute
 - kubectl taint nodes node1 (key)=(value):(effect)
 ### These do not tell pods they cannot do some action, rather it tells the node what can/cannot be mounted. Master nodes automatically get a taint to disallow any mounting (obv apps shouldnt be on the master)
