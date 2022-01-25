@@ -1,6 +1,16 @@
 # USEFUL KUBECTL COMMANDS:
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
+## RANDOM ASSORTMENT
+- kubectl api-resources (shows all k resources, shortnames, version, etc.)
+- k exec -it (resource-name) -- /bin/bash (exec into resource with interactive terminal at bin/bash to do commands)
+- k config set-context _(k config current-context) --namespace=dev (PUT dollar sign before k config current. set the current namespace to X)
+
+## EXPLAIN
+- kubectl explain pod.spec (explain the spec of a pod)
+- kubectl explain pod --recursive (gives a structure output. Looks like a yaml structure where your kube content would be placed)
+- kubectl explain cronjob.spec.jobTemplate
+
 ## POD
 - kubectl get pods 
 - kubectl get nodes
@@ -30,6 +40,7 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 ## SERVICE
 - kubectl expose pod redis --port=6379 --name redis-service --dry-run=client -o yaml (Create a Service named redis-service of type ClusterIP to expose pod redis on port 6379)
+
 ## NOTES ON RUNNING PODS AND DEPLOYMENTS WITH EDIT
 - kubectl edit pod (podname) -- this will open the pod spec in an editor. Then edit required props.This will not let you save, but it will save a tmp file that you can then apply after you delete the running pod
 ### Second option is to extract the pod definition in YAML using: 
